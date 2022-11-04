@@ -1,0 +1,27 @@
+const AWS = require("aws-sdk");
+
+const S3 = new AWS.S3();
+
+exports.handler = async (event, context, lambdaCallback) => {
+
+  try {
+
+    
+
+    const img = event.Records[0].s3.object.key; // get uploaded img file name
+
+    const s3Bucket = event.Records[0].s3.bucket.name; // get uploaded s3 bucket name
+
+    console.log('image is uploaded to s3 bucker ',img)
+
+    
+
+    lambdaCallback(null);
+
+  } catch (err) {
+
+    lambdaCallback(err);
+
+  }
+
+};
